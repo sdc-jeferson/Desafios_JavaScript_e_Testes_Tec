@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 - Somatório 1 a N</title>
+  </head>
+  <body>
+    <form id="form-number">
+      <input type="number" id="number" name="number" required />
+      <label for="number"></label>
+
+      <button>Receber</button>
+    </form>
+
+    <div
+      id="field-table"
+      style="
+        height: 400px;
+        width: 200px;
+        border: 1px solid black;
+        margin-top: 30px;
+        color: red;
+        font-size: 20px;
+      "
+      ;
+    ></div>
+
+    <script>
+      const envForm = document.getElementById("form-number");
+      const fieldTable = document.getElementById("field-table");
+
+      function updateDisplayTable(e) {
+        const inputNumber = parseInt(document.getElementById("number").value);
+        e.preventDefault();
+        doTable(inputNumber);
+      }
+
+      function doTable(number) {
+        let sum = 0;
+        for (let index = 0; index <= number; index++) {
+          console.log(`${(sum += number)}`);
+        }
+        fieldTable.innerText = `A soma de 1 até ${number} e ${sum}`;
+      }
+
+      envForm.addEventListener("submit", updateDisplayTable);
+    </script>
+  </body>
+</html>
