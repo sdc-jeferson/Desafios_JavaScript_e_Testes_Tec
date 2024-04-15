@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>38 - Accordion</title>
+  </head>
+  <body>
+    <style>
+      ul {
+        list-style: none;
+      }
+
+      ul .title {
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      ul .title::before {
+        content: "";
+        display: inline-block;
+        width: 30px;
+        height: 10px;
+        margin-right: 10px;
+        background-color: orange;
+      }
+
+      ul .title::after {
+        content: " ⬏";
+      }
+      .hidden {
+        display: none;
+      }
+
+      .content-list.active {
+        display: block !important;
+      }
+      .content-list.active::after {
+        content: " ⬎";
+      }
+    </style>
+
+    <ul>
+      <li>
+        <h2 class="title">titulo 1</h2>
+        <p class="content-list hidden">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s
+        </p>
+      </li>
+      <li>
+        <h2 class="title">titulo 2</h2>
+        <p class="content-list hidden">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s
+        </p>
+      </li>
+      <li>
+        <h2 class="title">titulo 3</h2>
+        <p class="content-list hidden">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s Lorem Ipsum is simply dummy text of
+          the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s
+        </p>
+      </li>
+      <li>
+        <h2 class="title">titulo 4</h2>
+        <p class="content-list hidden">
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s Lorem Ipsum is simply dummy text of the printing and
+          typesetting industry. Lorem Ipsum has been the industry's standard
+          dummy text ever since the 1500s Lorem Ipsum is simply dummy text of
+          the printing and typesetting industry. Lorem Ipsum has been the
+          industry's standard dummy text ever since the 1500s
+        </p>
+      </li>
+    </ul>
+
+    <script>
+      function initAccordion() {
+        const accordionList = document.querySelectorAll("ul .title");
+        const activeClass = "active";
+
+        if (accordionList.length) {
+          accordionList[0].classList.add(activeClass);
+          accordionList[0].nextElementSibling.classList.add(activeClass);
+        }
+
+        function activeAccordion() {
+          this.classList.toggle(activeClass);
+          this.nextElementSibling.classList.toggle(activeClass);
+        }
+
+        accordionList.forEach((item) => {
+          item.addEventListener("click", activeAccordion);
+        });
+      }
+      initAccordion();
+    </script>
+  </body>
+</html>
