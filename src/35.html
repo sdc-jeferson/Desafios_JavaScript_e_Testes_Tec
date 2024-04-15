@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>35 - Filtro por palavra</title>
+  </head>
+  <body>
+    <input type="text" />
+
+    <ul>
+      <li>Macarrão</li>
+      <li>Cebola</li>
+      <li>Alho</li>
+      <li>Óleo</li>
+      <li>Batata</li>
+    </ul>
+
+    <script>
+      const input = document.querySelector("input");
+      const items = document.querySelectorAll("ul li");
+
+      input.addEventListener("keyup", () => {
+        const filteredItem = items.forEach((item) => {
+          const checkedInput = item.innerText
+            .toLowerCase()
+            .includes(input.value);
+
+          if (checkedInput) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
