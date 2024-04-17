@@ -1,0 +1,39 @@
+// 44 - Cadeia de Promises
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      async function executePromise(urls) {
+        const results = [];
+
+        try {
+          for (const url of urls) {
+            const response = await fetch(url);
+            const data = await response.json();
+            results.push(data);
+          }
+        } catch (error) {
+          console.error(`Erro ao buscar ${urls}:`, error);
+          results.push({ message: error.message });
+        }
+
+        return results;
+      }
+      try {
+        const responsePromise = executePromise([
+          "https://jsonplaceholder.typicode.com/todos/1",
+          "https://pokeapi.co/api/v2/pokemon/ditto",
+        ]);
+        responsePromise.then((results) => console.log(results));
+      } catch (error) {
+        console.error("Erro ao executar promise:", error);
+      }
+    </script>
+  </body>
+</html>

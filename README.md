@@ -1,14 +1,12 @@
 # Desafios de JavaScript
 
-Aqui há uma série de desafios/exercícios propostos pelo Matheus Battisti em seu curso "Desafios de JavaScript - entrevistas e testes técnicos", disponível na [Udemy](https://www.udemy.com/course/desafios-de-javascript-entrevistas-e-testes-tecnicos/).
+Aqui há uma série de desafios/exercícios de "Desafios de JavaScript - entrevistas e testes técnicos".
 
 A complexidade vai aumentando a cada desafio, começando dos fundamentos até chegar em temas mais avançados como manipulação de DOM e assincronismo.
 
 ## Lista dos desafios
 
 Segue abaixo o que é pedido em cada desafio. Minha resolução para cada um também se encontra neste repositório, sendo que o nome de cada arquivo é referente ao número do desafio.
-
-Você também pode conferir o [repositório do instrutor](https://github.com/matheusbattisti/desafios_javascript) com todas as soluções.
 
 ### 01 - Conversão de temperatura
 
@@ -268,15 +266,3 @@ _Nota_: a função `fetch()` não está disponível por padrão no Node.js. Ent�
 ### 44 - Cadeia de Promises
 
 Você terá uma função que recebe como parâmetro um array com várias URLs. A função deverá fazer fetch para cada uma das URLs, em sequência, e reunir o resultado delas em um novo array, a ser devolvido como retorno da função.
-
-### 45 - Retry com Promises
-
-Crie uma função que irá fazer uma chamada a uma API um número `X` de tentativas, com um delay `Y` a cada tentativa mal sucedida. A chamada à API deve cessar quando a tentativa for bem sucedida (sucesso na Promise) ou quando o número de tentativas acabar.
-
-A função terá os seguintes parâmetros:
-
-- função callback com uma chamada a uma API;
-
-- quantidade de tentativas;
-
-- delay entre cada tentativa.
